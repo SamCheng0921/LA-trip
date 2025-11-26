@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>LA: GTA Edition</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            background-color: #0d0d0d; 
+            color: #eeeeee; 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            padding-bottom: 120px; /* 增加底部空間，避免被瀏覽器工具列擋住 */
+        }
+        h1, h2, .gta-font { font-family: 'Russo One', sans-serif; letter-spacing: 1px; }
+        .hud-money { color: #56a95c; text-shadow: 2px 2px 0 #000; }
+        
+        .nav-glass {
+            background: rgba(10, 10, 10, 0.95);
+            border-top: 1px solid #333;
+            /* 針對手機瀏覽器工具列的優化 */
+            padding-bottom: 10px;
+        }
+        
+        .mission-card {
+            background: linear-gradient(180deg, #1f1f1f 0%, #111 100%);
+            border-left: 6px solid #fff;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.6);
+        }
+        
+        .food-intel {
+            background: #1a2e1a;
+            border: 1px solid #2d4f2d;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+        }
+        
+        .btn-waymo { background: linear-gradient(90deg, #00d2ff, #3a7bd5); }
+        .btn-uber { background: #000; border: 1px solid #444; }
+    </style>
+</head>
+<body class="pt-24">
+
+    <div class="fixed top-0 left-0 w-full p-4 z-50 pointer-events-none bg-gradient-to-b from-black via-black/90 to-transparent">
+        <div class="flex justify-between items-start">
+            <div>
+                <div class="text-[10px] font-bold bg-white text-black px-1 rounded inline-block uppercase tracking-wider">Wanted</div>
+                <div class="flex mt-1 text-[#f0f0f0]">
+                    <i class="fas fa-star text-lg"></i><i class="fas fa-star text-lg"></i><i class="fas fa-star text-lg"></i><i class="fas fa-star text-lg"></i><i class="fas fa-star text-lg"></i>
+                </div>
+            </div>
+            <div class="text-right">
+                <div class="gta-font text-3xl hud-money" id="hud-money">$0</div>
+                <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mt-1">Sam & Emma</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-4">
+        
+        <div id="day1" class="tab-content animate-fade">
+            <h1 class="text-3xl mb-1 text-white uppercase italic drop-shadow-lg">Mission 1</h1>
+            <p class="text-orange-500 font-bold mb-6 text-xs tracking-widest uppercase">Welcome to Los Santos</p>
+
+            <div class="space-y-4">
+                <div class="mission-card p-4 rounded-r-xl border-l-purple-500">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-bold">LAX Arrival (09:05)</h3>
+                        <i class="fas fa-plane-arrival text-xl text-gray-600"></i>
+                    </div>
+                    <div class="food-intel">
+                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]">
+                            <i class="fas fa-hamburger"></i> 必吃推薦 (< $20)
+                        </div>
+                        <p class="font-bold text-white">In-N-Out Burger (Sepulveda)</p>
+                        <p class="text-gray-400 text-sm">點這個: <span class="text-yellow-400">Double-Double Animal Style</span></p>
+                        <p class="text-[10px] text-gray-500 mt-1">*就在機場旁邊，第一站首選</p>
+                    </div>
+                    <a href="https://m.uber.com/ul" class="btn-uber mt-3 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Call Uber</a>
+                </div>
+
+                <div class="mission-card p-4 rounded-r-xl border-l-yellow-500">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-bold">Park Plaza Lodge</h3>
+                        <i class="fas fa-hotel text-xl text-gray-600"></i>
+                    </div>
+                    <div class="food-intel">
+                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]">
+                            <i class="fas fa-utensils"></i> 附近美食 ($20-$30)
+                        </div>
+                        <p class="font-bold text-white">Canter's Deli (24hr)</p>
+                        <p class="text-gray-400 text-sm">點這個: <span class="text-yellow-400">Hot Pastrami Sandwich</span></p>
+                        <p class="text-[10px] text-gray-500 mt-1">*走路可到，經典猶太燻肉三明治</p>
+                    </div>
+                </div>
+
+                <div class="mission-card p-4 rounded-r-xl border-l-green-500">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg font-bold">The Grove / Farmers Mkt</h3>
+                        <i class="fas fa-shopping-bag text-xl text-gray-600"></i>
+                    </div>
+                    <div class="food-intel">
+                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]">
+                            <i class="fas fa-drumstick-bite"></i> 高CP值 (< $25)
+                        </div>
+                        <p class="font-bold text-white">Pampas Grill</p>
+                        <p class="text-gray-400 text-sm">點這個: <span class="text-yellow-400">Sirloin Cap (牛後腰脊肉)</span></p>
+                        <p class="text-[10px] text-gray-500 mt-1">*市場內排隊名店，秤重賣的巴西烤肉</p>
+                    </div>
+                </div>
+
+                <div class="mission-card p-4 rounded-r-xl border-l-pink-500">
+                    <h3 class="text-lg font-bold">Walk of Fame</h3>
+                    <div class="food-intel">
+                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]">
+                            <i class="fas fa-drumstick-bite"></i> 靈魂食物 ($25-$35)
+                        </div>
+                        <p class="font-bold text-white">Roscoe's Chicken & Waffles</p>
+                        <p class="text-gray-400 text-sm">點這個: <span class="text-yellow-400">Obama Special</span></p>
+                        <p class="text-[10px] text-gray-500 mt-1">*歐巴馬也愛的炸雞配鬆餅</p>
+                    </div>
+                </div>
+
+                <div class="mission-card p-4 rounded-r-xl border-l-orange-500 mb-8">
+                    <h3 class="text-lg font-bold">Griffith Observatory</h3>
+                    <div class="food-intel">
+                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]">
+                            <i class="fas fa-coffee"></i> 下山消夜 ($15-$25)
+                        </div>
+                        <p class="font-bold text-white">Fred 62</p>
+                        <p class="text-gray-400 text-sm">點這個: <span class="text-yellow-400">Juicy Lucy Burger</span></p>
+                        <p class="text-[10px] text-gray-500 mt-1">*美式復古餐廳，開到很晚</p>
+                    </div>
+                    <a href="https://www.google.com/maps/dir/Los+Angeles+International+Airport,+1+World+Way,+Los+Angeles,+CA,+United+States/Park+Plaza+Lodge,+6001+West+3rd+Street,+Los+Angeles,+CA,+United+States/The+Original+Farmers+Market,+6333+West+3rd+Street,+Los+Angeles,+CA,+United+States/The+Grove,+189+The+Grove+Drive,+Los+Angeles,+CA,+United+States/Hollywood+Walk+of+Fame,+Hollywood+Boulevard,+Vine+Street,+Los+Angeles,+CA,+United+States/Lake+Hollywood+Park,+3160+Canyon+Lake+Drive,+Los+Angeles,+CA,+United+States/Griffith+Observatory,+2800+East+Observatory+Road,+Los+Angeles,+CA,+United+States/data=!4m44!4m43!1m5!1m1!19sChIJtU-yE9KwwoAR8a2LaVd7qHc!2m2!1d-118.4036052!2d33.942153!1m5!1m1!19sChIJ9472cia5woARz6XwN5x563g!2m2!1d-118.35142379999999!2d34.0703002!1m5!1m1!19sChIJmeuOVTC5woARRgUknn4XqXE!2m2!1d-118.3603699!2d34.072011499999995!1m5!1m1!19sChIJwwPTwi-5woARbtuI_49vkMM!2m2!1d-118.3575164!2d34.0719407!1m5!1m1!19sChIJXyC7WTu_woARPvVMCHBXd4U!2m2!1d-118.3295694!2d34.101605899999996!1m5!1m1!19sChIJIWe65uK_woARj5O0F9JFBJw!2m2!1d-118.3261053!2d34.1269448!1m5!1m1!19sChIJywjU6WG_woAR3NrWwrEH_3M!2m2!1d-118.3003935!2d34.1184341!3e0" class="bg-gray-800 border border-gray-600 mt-3 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">GPS Route</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="day2" class="tab-content hidden">
+            <h1 class="text-3xl mb-1 text-white uppercase italic drop-shadow-lg">Mission 2</h1>
+            <p class="text-cyan-400 font-bold mb-6 text-xs tracking-widest uppercase">West Coast Hustle</p>
+
+            <div class="bg-red-900/30 border border-red-600/50 p-4 mb-6 rounded-lg relative">
+                <div class="flex items-start gap-3">
+                    <i class="fas fa-exclamation-triangle text-red-500 mt-1"></i>
+                    <div>
+                        <h3 class="text-red-500 font-bold uppercase text-xs tracking-wider">Traffic Alert</h3>
+                        <p class="text-gray-300 text-xs mt-1">Don't go back to hotel. Take bags with you.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-4">
+                <div class="mission-card p-4 rounded-r-xl border-l-green-500">
+                    <h3 class="text-lg font-bold">Grand Central Mkt</h3>
+                    <div class="food-intel">
+                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]">
+                            <i class="fas fa-egg"></i> 早餐必吃 (< $15)
+                        </div>
+                        <p class="font-bold text-white">Eggslut</p>
+                        <p class="text-gray-400 text-sm">點這個: <span class="text-yellow-400">Fairfax Sandwich</span></p>
+                        <p class="text-[10px] text-gray-500 mt-1">*擁有最滑嫩炒蛋的三明治</p>
+                    </div>
+                </div>
+
+                <div class="mission-card p-4 rounded-r-xl border-l-yellow-400">
+                    <h3 class="text-lg font-bold">UCLA / Westwood</h3>
+                    <div class="food-intel">
+                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]">
+                            <i class="fas fa-cookie-bite"></i> 甜點點心 (< $5)
+                        </div>
+                        <p class="font-bold text-white">Diddy Riese</p>
+                        <p class="text-gray-400 text-sm">點這個: <span class="text-yellow-400">Ice Cream Sandwich</span></p>
+                        <p class="text-[10px] text-gray-500 mt-1">*學生最愛，便宜好吃的手工餅乾夾冰淇淋</p>
+                    </div>
+                    <a href="https://m.uber.com/ul" class="btn-uber mt-2 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Uber (Long Ride)</a>
+                </div>
+
+                <div class="mission-card p-4 rounded-r-xl border-l-cyan-400">
+                    <h3 class="text-lg font-bold">Santa Monica</h3>
+                    <div class="food-intel">
+                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]">
+                            <i class="fas fa-cocktail"></i> 海灘晚餐 ($20-$40)
+                        </div>
+                        <p class="font-bold text-white">Cha Cha Chicken</p>
+                        <p class="text-gray-400 text-sm">點這個: <span class="text-yellow-400">Coconut Fried Chicken</span></p>
+                        <p class="text-[10px] text-gray-500 mt-1">*加勒比海風格，氣氛像 GTA 海灘派對</p>
+                    </div>
+                    <button class="btn-waymo mt-3 w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Call Waymo</button>
+                </div>
+                 
+                 <div class="mission-card p-4 rounded-r-xl border-l-red-600 mb-8">
+                    <div class="flex justify-between">
+                        <h3 class="text-lg font-bold text-red-500">FINAL: LAX</h3>
+                        <span class="text-xs font-bold bg-red-600 text-black px-2 py-1 rounded h-6">01:06</span>
+                    </div>
+                     <a href="https://www.google.com/maps/dir/Park+Plaza+Lodge,+6001+West+3rd+Street,+Los+Angeles,+CA,+United+States/Grand+Central+Market,+317+South+Broadway,+Los+Angeles,+CA,+United+States/Walt+Disney+Concert+Hall,+111+South+Grand+Avenue,+Los+Angeles,+CA,+United+States/University+of+California,+Los+Angeles,+Los+Angeles,+CA,+United+States/The+Getty,+1200+Getty+Center+Drive,+Los+Angeles,+CA,+United+States/Santa+Monica+Pier,+200+Santa+Monica+Pier,+Santa+Monica,+CA,+United+States/Los+Angeles+International+Airport,+1+World+Way,+Los+Angeles,+CA,+United+States/data=!4m44!4m43!1m5!1m1!19sChIJ9472cia5woARz6XwN5x563g!2m2!1d-118.35142379999999!2d34.0703002!1m5!1m1!19sChIJ53JDjkvGwoAR2NMG6_1OnUg!2m2!1d-118.2490552!2d34.050872!1m5!1m1!19sChIJ0xG7n03GwoARsDH_OyyMcrM!2m2!1d-118.249845!2d34.0553454!1m5!1m1!19sChIJZQ9c8IW8woARN0gTXFiTqSU!2m2!1d-118.4438495!2d34.0699182!1m5!1m1!19sChIJbzYnQte8woARJaqqFVpKeNo!2m2!1d-118.4732648!2d34.0773438!1m5!1m1!19sChIJm6deTdekwoARTY_RzhoRms0!2m2!1d-118.4987585!2d34.008282099999995!1m5!1m1!19sChIJtU-yE9KwwoAR8a2LaVd7qHc!2m2!1d-118.4036052!2d33.942153!3e0" class="bg-gray-800 border border-gray-600 mt-3 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">GPS to Airport</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="stats" class="tab-content hidden">
+            <h1 class="text-3xl mb-1 text-white uppercase italic drop-shadow-lg">Finance</h1>
+            <p class="text-green-500 font-bold mb-6 text-xs tracking-widest uppercase">Heist Earnings</p>
+
+            <div class="bg-[#1a1a1a] p-4 rounded-xl border border-gray-800 shadow-lg mb-6">
+                 <div class="flex gap-3 mb-4">
+                    <input id="item" type="text" placeholder="ITEM" class="bg-black text-white border border-gray-700 p-3 w-full rounded focus:border-green-500 outline-none uppercase font-bold text-sm">
+                    <input id="cost" type="number" placeholder="$" class="bg-black text-white border border-gray-700 p-3 w-24 rounded focus:border-green-500 outline-none font-bold text-center">
+                </div>
+                <button onclick="addExpense()" class="w-full bg-green-700 active:bg-green-600 text-white font-black uppercase py-4 rounded shadow-lg tracking-wider">
+                    Add Expense
+                </button>
+            </div>
+
+            <ul id="expense-list" class="divide-y divide-gray-800 text-sm mb-6 max-h-60 overflow-y-auto"></ul>
+            
+            <div class="bg-blue-900/20 border border-blue-500/30 p-4 rounded-xl text-center">
+                <p class="text-blue-400 text-[10px] font-bold uppercase tracking-widest mb-1">Split (Per Person)</p>
+                <p class="text-4xl font-black text-white" id="split-display">$0</p>
+            </div>
+             <button onclick="clearExpenses()" class="w-full mt-8 text-red-500 text-xs font-bold uppercase py-4 opacity-50">Reset Data</button>
+        </div>
+
+    </div>
+
+    <nav class="fixed bottom-0 left-0 w-full nav-glass h-20 flex justify-around items-center z-50 px-2">
+        <button onclick="switchTab('day1')" id="btn-day1" class="flex flex-col items-center w-1/3 p-2 transition-all transform scale-105">
+            <i class="fas fa-map-marker-alt text-2xl mb-1 text-orange-500 drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]"></i>
+            <span class="text-[9px] font-black uppercase tracking-widest text-white">Day 1</span>
+        </button>
+        <button onclick="switchTab('day2')" id="btn-day2" class="flex flex-col items-center w-1/3 p-2 opacity-40 grayscale transition-all">
+            <i class="fas fa-flag-checkered text-2xl mb-1 text-cyan-400"></i>
+            <span class="text-[9px] font-black uppercase tracking-widest text-gray-400">Day 2</span>
+        </button>
+        <button onclick="switchTab('stats')" id="btn-stats" class="flex flex-col items-center w-1/3 p-2 opacity-40 grayscale transition-all">
+            <i class="fas fa-chart-pie text-2xl mb-1 text-green-500"></i>
+            <span class="text-[9px] font-black uppercase tracking-widest text-gray-400">Wallet</span>
+        </button>
+    </nav>
+
+    <script>
+        // 初始化記帳資料 (從瀏覽器本地儲存讀取)
+        let expenses = JSON.parse(localStorage.getItem('gta_trip_expenses')) || [];
+        renderExpenses();
+
+        function switchTab(id) {
+            // 隱藏所有分頁
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+
+            // 重置按鈕樣式
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.add('opacity-40', 'grayscale');
+                btn.classList.remove('scale-105');
+                btn.querySelector('span').classList.replace('text-white', 'text-gray-400');
+            });
+
+            // 啟用當前按鈕
+            const activeBtn = document.getElementById('btn-' + id);
+            activeBtn.classList.remove('opacity-40', 'grayscale');
+            activeBtn.classList.add('scale-105');
+            activeBtn.querySelector('span').classList.replace('text-gray-400', 'text-white');
+            window.scrollTo(0,0);
+        }
+
+        function addExpense() {
+            const item = document.getElementById('item').value;
+            const cost = parseFloat(document.getElementById('cost').value);
+            if (!item || isNaN(cost)) return;
+            expenses.push({ item, cost, id: Date.now() });
+            saveAndRender();
+            document.getElementById('item').value = '';
+            document.getElementById('cost').value = '';
+        }
+
+        function removeExpense(id) {
+            if(confirm('Delete this item?')) {
+                expenses = expenses.filter(e => e.id !== id);
+                saveAndRender();
+            }
+        }
+        
+        function clearExpenses() {
+            if(confirm('Wasted? Clear all data?')) {
+                expenses = [];
+                saveAndRender();
+            }
+        }
+
+        function saveAndRender() {
+            localStorage.setItem('gta_trip_expenses', JSON.stringify(expenses));
+            renderExpenses();
+        }
+
+        function renderExpenses() {
+            const list = document.getElementById('expense-list');
+            let total = 0;
+            if (expenses.length === 0) list.innerHTML = '<li class="p-4 text-center text-gray-600 text-xs font-bold uppercase tracking-widest">No Transactions</li>';
+            else {
+                list.innerHTML = expenses.map(e => {
+                    total += e.cost;
+                    return `<li class="flex justify-between items-center py-4 px-2 border-b border-gray-800">
+                        <div class="flex items-center gap-3">
+                            <button onclick="removeExpense(${e.id})" class="text-red-600 font-bold px-2">X</button>
+                            <span class="text-gray-300 font-bold uppercase text-sm">${e.item}</span>
+                        </div>
+                        <span class="text-green-500 font-bold text-lg">$${e.cost}</span>
+                    </li>`;
+                }).join('');
+            }
+            document.getElementById('hud-money').innerText = '$' + total.toLocaleString();
+            document.getElementById('split-display').innerText = '$' + (total / 2).toFixed(2);
+        }
+    </script>
+</body>
+</html>
