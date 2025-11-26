@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="LA Mission">
-    <title>LA Mission v12</title>
+    <title>LA Mission v13</title>
     
     <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Grand_Theft_Auto_V_Logo.svg/1200px-Grand_Theft_Auto_V_Logo.svg.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -52,30 +52,36 @@
         
         .food-item {
             border-bottom: 1px solid #1a331a;
-            padding-bottom: 8px;
-            margin-bottom: 8px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
         }
         .food-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
         
         .food-link {
-            display: inline-block;
+            display: block;
             color: #56a95c;
             font-weight: bold;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            margin-bottom: 2px;
         }
-        .food-desc { color: #999; font-size: 0.75rem; margin-top: 2px; }
-        .must-eat { color: #facc15; font-size: 0.75rem; font-weight: bold; }
+        .food-desc { color: #999; font-size: 0.75rem; }
+        .must-eat { color: #facc15; font-size: 0.75rem; font-weight: bold; margin-top: 2px; }
+        .food-hours { color: #60a5fa; font-size: 0.7rem; font-family: monospace; margin-top: 2px; }
         
         .drink-rec {
+            display: block;
             background: #1a2634;
             border-left: 3px solid #3b82f6;
-            padding: 6px 10px;
-            margin-top: 8px;
-            font-size: 0.75rem;
+            padding: 8px 10px;
+            margin-top: 10px;
+            font-size: 0.8rem;
             color: #bfdbfe;
             border-radius: 0 4px 4px 0;
+            text-decoration: none;
+            transition: background 0.2s;
         }
+        .drink-rec:active { background: #25364a; }
 
         .stat-tag {
             display: inline-block;
@@ -135,7 +141,10 @@
                         <h3 class="text-xl font-bold">LAX Arrival</h3>
                         <span class="text-purple-400 font-bold">09:05</span>
                     </div>
-                    <div><span class="stat-tag">目的地: Hotel</span></div>
+                    <div>
+                        <span class="stat-tag"><i class="fas fa-clock"></i> 停留: 速離</span>
+                        <span class="stat-tag">目的地: Hotel</span>
+                    </div>
                     <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Intel: Uber/Lyft 請搭接駁車去「LAX-it」綠色區域叫車。</span>
                     <a href="https://m.uber.com/ul" class="btn-uber mt-3 block w-full py-3 rounded text-center text-xs font-bold uppercase text-white">Call Uber to Hotel</a>
                 </div>
@@ -150,20 +159,23 @@
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Nearby Food</div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Canter's+Deli+Los+Angeles" target="_blank" class="food-link">1. Canter's Deli <span class="text-yellow-400">$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Canters+Deli+Los+Angeles" target="_blank" class="food-link">1. Canter's Deli <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 24 Hours (Daily)</div>
                             <div class="must-eat">必吃: Hot Pastrami Sandwich</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Joan's+on+Third+Los+Angeles" target="_blank" class="food-link">2. Joan's on Third <span class="text-yellow-400">$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Joans+on+Third+Los+Angeles" target="_blank" class="food-link">2. Joan's on Third <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 08:00 - 19:00</div>
                             <div class="must-eat">必吃: Chinese Chicken Salad</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Mercado+Los+Angeles+3rd+St" target="_blank" class="food-link">3. Mercado <span class="text-yellow-400">$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Mercado+Third+Street" target="_blank" class="food-link">3. Mercado <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 17:00 - 22:00</div>
                             <div class="must-eat">必吃: Carnitas Tacos</div>
                         </div>
-                        <div class="drink-rec">
-                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Verve Coffee Roasters (走路可到，氣氛超好)
-                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Verve+Coffee+Roasters+W+3rd+St" target="_blank" class="drink-rec">
+                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Verve Coffee (07:00-19:00)<br><span class="text-xs text-gray-400">走路可到，氣氛超好，咖啡專業。</span>
+                        </a>
                     </div>
                 </div>
 
@@ -175,20 +187,23 @@
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Market Food</div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Pampas+Grill+Farmers+Market" target="_blank" class="food-link">1. Pampas Grill <span class="text-yellow-400">$$</span></a>
-                            <div class="must-eat">必吃: Sirloin Cap</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Pampas+Grill+Farmers+Market" target="_blank" class="food-link">1. Pampas Grill <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 10:30 - 21:00</div>
+                            <div class="must-eat">必吃: Sirloin Cap (秤重計價)</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=The+Gumbo+Pot+Farmers+Market" target="_blank" class="food-link">2. The Gumbo Pot <span class="text-yellow-400">$</span></a>
-                            <div class="must-eat">必吃: Jambalaya</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=The+Gumbo+Pot+Los+Angeles" target="_blank" class="food-link">2. The Gumbo Pot <span class="text-yellow-400">$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 09:00 - 21:00</div>
+                            <div class="must-eat">必吃: Jambalaya (紐奧良風味)</div>
                         </div>
                          <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Bob's+Coffee+and+Doughnuts" target="_blank" class="food-link">3. Bob's Doughnuts <span class="text-yellow-400">$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Bobs+Coffee+and+Doughnuts" target="_blank" class="food-link">3. Bob's Doughnuts <span class="text-yellow-400">$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 06:00 - 21:00</div>
                             <div class="must-eat">必吃: Apple Fritter</div>
                         </div>
-                        <div class="drink-rec">
-                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Alfred Coffee (Melrose店，網美必去)
-                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Alfred+Coffee+Melrose+Place" target="_blank" class="drink-rec">
+                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Alfred Coffee (07:00-18:00)<br><span class="text-xs text-gray-400">Melrose Place 網美店，必點 Vanilla Latte。</span>
+                        </a>
                     </div>
                     <button class="btn-waymo mt-3 w-full py-3 rounded text-center text-xs font-bold uppercase text-white">Call Waymo</button>
                 </div>
@@ -199,7 +214,9 @@
                         <i class="fas fa-tshirt text-gray-500"></i>
                     </div>
                     <span class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-1 block">Dodgers Clubhouse</span>
-                    <a href="https://maps.google.com/?cid=3565751723328692397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ8" target="_blank" class="btn-uber block w-full py-2 rounded text-center text-xs font-bold uppercase text-white border-blue-500">Navigate to Store</a>
+                    <p class="text-sm text-gray-400 mb-2">Ovation 商場內，官方專賣店。</p>
+                    <div class="food-hours mb-2"><i class="far fa-clock"></i> 10:00 - 20:00</div>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Dodgers+Clubhouse+Hollywood" target="_blank" class="btn-uber block w-full py-2 rounded text-center text-xs font-bold uppercase text-white border-blue-500">Navigate to Store</a>
                 </div>
 
                 <div class="mission-card p-5 rounded-r-xl border-l-pink-500">
@@ -210,20 +227,23 @@
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Dinner</div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=In-N-Out+Burger+7009+Sunset+Blvd" target="_blank" class="food-link">1. In-N-Out (Sunset) <span class="text-yellow-400">$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=In-N-Out+Burger+Sunset+Blvd" target="_blank" class="food-link">1. In-N-Out (Sunset) <span class="text-yellow-400">$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 10:30 - 01:00 (Fri/Sat 01:30)</div>
                             <div class="must-eat">必吃: Double-Double Animal Style</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Roscoe's+Chicken+and+Waffles+Hollywood" target="_blank" class="food-link">2. Roscoe's Chicken <span class="text-yellow-400">$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Roscoes+Chicken+and+Waffles+Hollywood" target="_blank" class="food-link">2. Roscoe's Chicken <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 08:00 - 20:00 (Fri/Sat 22:00)</div>
                             <div class="must-eat">必吃: The Obama Special</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=L'Antica+Pizzeria+da+Michele+Hollywood" target="_blank" class="food-link">3. L'Antica Pizzeria <span class="text-yellow-400">$$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=L'Antica+Pizzeria+da+Michele+Los+Angeles" target="_blank" class="food-link">3. L'Antica Pizzeria <span class="text-yellow-400">$$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 11:00 - 23:00</div>
                             <div class="must-eat">必吃: Margherita Pizza</div>
                         </div>
-                        <div class="drink-rec">
-                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Philz Coffee (必點 Mint Mojito Coffee)
-                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Xing+Fu+Tang+Hollywood" target="_blank" class="drink-rec">
+                            <i class="fas fa-glass-whiskey"></i> <b>喝這家:</b> 幸福堂 Xing Fu Tang (11:30-23:00)<br><span class="text-xs text-gray-400">開很晚的手炒黑糖珍珠鮮奶，好喝。</span>
+                        </a>
                     </div>
                 </div>
 
@@ -233,22 +253,24 @@
                     </div>
                     <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Intel: 山上訊號差，建議下山去 Los Feliz 吃。</span>
                     <div class="food-intel">
-                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Late Night</div>
+                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Late Night (Los Feliz)</div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Fred+62+Los+Angeles" target="_blank" class="food-link">1. Fred 62 <span class="text-yellow-400">$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Fred+62+Los+Angeles" target="_blank" class="food-link">1. Fred 62 <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 07:00 - 03:00 (Daily)</div>
                             <div class="must-eat">必吃: Juicy Lucy Burger</div>
                         </div>
                          <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Jitlada+Los+Angeles" target="_blank" class="food-link">2. Jitlada (Thai) <span class="text-yellow-400">$$</span></a>
-                            <div class="must-eat">必吃: Green Curry</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Jitlada+Restaurant" target="_blank" class="food-link">2. Jitlada (Thai) <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 11:00 - 22:00 (Closed Mon)</div>
+                            <div class="must-eat">必吃: Green Curry (超辣)</div>
                         </div>
                          <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Home+Restaurant+Los+Feliz" target="_blank" class="food-link">3. Home Restaurant <span class="text-yellow-400">$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Home+Restaurant+Los+Feliz" target="_blank" class="food-link">3. Home Restaurant <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 09:00 - 22:00</div>
                             <div class="must-eat">必吃: Mac & Cheese</div>
                         </div>
-                        <div class="drink-rec">
-                            <i class="fas fa-glass-cheers"></i> <b>喝這家:</b> The Dresden (復古酒吧)
-                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=The+Dresden+Restaurant+&span class="text-xs text-gray-400">傳奇酒吧，開到凌晨 2 點，點杯調酒感受氣氛。</span>
+                        </a>
                     </div>
                     <a href="https://www.google.com/maps/dir/Los+Angeles+International+Airport,+1+World+Way,+Los+Angeles,+CA,+United+States/Park+Plaza+Lodge,+6001+West+3rd+Street,+Los+Angeles,+CA,+United+States/The+Original+Farmers+Market,+6333+West+3rd+Street,+Los+Angeles,+CA,+United+States/The+Grove,+189+The+Grove+Drive,+Los+Angeles,+CA,+United+States/Hollywood+Walk+of+Fame,+Hollywood+Boulevard,+Vine+Street,+Los+Angeles,+CA,+United+States/Lake+Hollywood+Park,+3160+Canyon+Lake+Drive,+Los+Angeles,+CA,+United+States/Griffith+Observatory,+2800+East+Observatory+Road,+Los+Angeles,+CA,+United+States/data=!4m44!4m43!1m5!1m1!19sChIJtU-yE9KwwoAR8a2LaVd7qHc!2m2!1d-118.4036052!2d33.942153!1m5!1m1!19sChIJ9472cia5woARz6XwN5x563g!2m2!1d-118.35142379999999!2d34.0703002!1m5!1m1!19sChIJmeuOVTC5woARRgUknn4XqXE!2m2!1d-118.3603699!2d34.072011499999995!1m5!1m1!19sChIJwwPTwi-5woARbtuI_49vkMM!2m2!1d-118.3575164!2d34.0719407!1m5!1m1!19sChIJXyC7WTu_woARPvVMCHBXd4U!2m2!1d-118.3295694!2d34.101605899999996!1m5!1m1!19sChIJIWe65uK_woARj5O0F9JFBJw!2m2!1d-118.3261053!2d34.1269448!1m5!1m1!19sChIJywjU6WG_woAR3NrWwrEH_3M!2m2!1d-118.3003935!2d34.1184341!3e0" class="bg-gray-800 border border-gray-600 mt-3 block w-full py-3 rounded text-center text-xs font-bold uppercase text-white">GPS Route</a>
                 </div>
@@ -280,16 +302,19 @@
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Near Hotel</div>
                         <div class="food-item">
-                            <a href="https://maps.google.com/?cid=3565751723328692397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ9" target="_blank" class="food-link">1. Republique <span class="text-yellow-400">$$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Republique+Los+Angeles" target="_blank" class="food-link">1. Republique <span class="text-yellow-400">$$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 08:00 - 14:00</div>
                             <div class="must-eat">必吃: Kimchi Fried Rice</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ0" target="_blank" class="food-link">2. Sycamore Kitchen <span class="text-yellow-400">$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=The+Sycamore+Kitchen" target="_blank" class="food-link">2. Sycamore Kitchen <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 08:00 - 16:00</div>
                             <div class="must-eat">必吃: Pork Belly Hash</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ2" target="_blank" class="food-link">3. Met Her At A Bar <span class="text-yellow-400">$$</span></a>
-                            <div class="must-eat">必吃: Waffles</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Met+Her+At+A+Bar" target="_blank" class="food-link">3. Met Her At A Bar <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 08:00 - 15:00</div>
+                            <div class="must-eat">必吃: Belgian Waffles</div>
                         </div>
                     </div>
                 </div>
@@ -303,22 +328,25 @@
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Sweets & Food</div>
                         <div class="food-item">
-                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ3" target="_blank" class="food-link">1. Cheesecake Factory <span class="text-yellow-400">$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=The+Cheesecake+Factory+Beverly+Hills" target="_blank" class="food-link">1. Cheesecake Factory <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 11:30 - 22:00</div>
                             <div class="must-eat">必吃: Strawberry Cheesecake</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ4" target="_blank" class="food-link">2. Il Pastaio <span class="text-yellow-400">$$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Il+Pastaio+Beverly+Hills" target="_blank" class="food-link">2. Il Pastaio <span class="text-yellow-400">$$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 11:30 - 23:00</div>
                             <div class="must-eat">必吃: Justin Bieber Pasta</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgIC5tLy5owE!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">3. Sprinkles <span class="text-yellow-400">$</span></a>
-                            <div class="must-eat">必吃: Red Velvet</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Sprinkles+Beverly+Hills" target="_blank" class="food-link">3. Sprinkles <span class="text-yellow-400">$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 10:00 - 20:00</div>
+                            <div class="must-eat">必吃: Cupcake ATM (Red Velvet)</div>
                         </div>
-                        <div class="drink-rec">
-                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Alfred Coffee (Beverly Hills店)
-                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Alfred+Coffee+Beverly+Hills" target="_blank" class="drink-rec">
+                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Alfred Coffee (07:00-18:00)<br><span class="text-xs text-gray-400">比佛利店裝潢超美，適合拍照。</span>
+                        </a>
                     </div>
-                    <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ6" class="btn-uber mt-2 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Uber to Rodeo</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Rodeo+Drive+Beverly+Hills" class="btn-uber mt-2 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Uber to Rodeo</a>
                 </div>
 
                 <div class="mission-card p-5 rounded-r-xl border-l-yellow-400">
@@ -328,19 +356,25 @@
                     </div>
                     <span class="warning-text"><i class="fas fa-exclamation-circle"></i> 記得設定中途停靠飯店拿行李！</span>
                     <div class="food-intel">
-                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Westwood Food</div>
+                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Westwood Food (Nearby)</div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Diddy+Riese" target="_blank" class="food-link">1. Diddy Riese <span class="text-yellow-400">$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Diddy+Riese+Westwood" target="_blank" class="food-link">1. Diddy Riese <span class="text-yellow-400">$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 12:00 - 23:00</div>
                             <div class="must-eat">必吃: Ice Cream Sandwich</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Fat+Sal's+Deli+Westwood" target="_blank" class="food-link">2. Fat Sal's Deli <span class="text-yellow-400">$$</span></a>
-                            <div class="must-eat">必吃: Fat Texas</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Fat+Sals+Deli+Westwood" target="_blank" class="food-link">2. Fat Sal's Deli <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 11:00 - 02:00</div>
+                            <div class="must-eat">必吃: Fat Texas Sandwich</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ1" target="_blank" class="food-link">3. Egg Tuck <span class="text-yellow-400">$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Egg+Tuck+Westwood" target="_blank" class="food-link">3. Egg Tuck <span class="text-yellow-400">$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 07:30 - 16:00</div>
                             <div class="must-eat">必吃: Bacon Egg Sandwich</div>
                         </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Sunright+Tea+Studio+Westwood" target="_blank" class="drink-rec">
+                            <i class="fas fa-glass-whiskey"></i> <b>喝這家:</b> Sunright Tea Studio (11:00-21:00)<br><span class="text-xs text-gray-400">水果茶和波霸鮮奶茶都很讚。</span>
+                        </a>
                     </div>
                     <a href="https://m.uber.com/ul" class="btn-uber mt-2 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Uber (Add Stop @ Hotel)</a>
                 </div>
@@ -351,20 +385,23 @@
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Beach Dinner</div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Cha+Cha+Chicken+Santa+Monica" target="_blank" class="food-link">1. Cha Cha Chicken <span class="text-yellow-400">$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Cha+Cha+Chicken+Santa+Monica" target="_blank" class="food-link">1. Cha Cha Chicken <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 11:00 - 21:00</div>
                             <div class="must-eat">必吃: Coconut Fried Chicken</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Blue+Plate+Taco" target="_blank" class="food-link">2. Blue Plate Taco <span class="text-yellow-400">$$</span></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Blue+Plate+Taco" target="_blank" class="food-link">2. Blue Plate Taco <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 11:30 - 21:30</div>
                             <div class="must-eat">必吃: Lobster Tacos</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=HiHo+Cheeseburger+Santa+Monica" target="_blank" class="food-link">3. HiHo Burger <span class="text-yellow-400">$$</span></a>
-                            <div class="must-eat">必吃: HiHo Double</div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=HiHo+Cheeseburger+Santa+Monica" target="_blank" class="food-link">3. HiHo Burger <span class="text-yellow-400">$$</span> <i class="fas fa-location-arrow text-xs"></i></a>
+                            <div class="food-hours"><i class="far fa-clock"></i> 11:30 - 22:00</div>
+                            <div class="must-eat">必吃: HiHo Double (Wagyu)</div>
                         </div>
-                        <div class="drink-rec">
-                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Philz Coffee (海灘店)
-                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Philz+Coffee+Santa+Monica" target="_blank" class="drink-rec">
+                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Philz Coffee (06:30-17:00)<br><span class="text-xs text-gray-400">⚠️ 下午 5 點就關，想喝要趁早！</span>
+                        </a>
                     </div>
                     <button class="btn-waymo mt-3 w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Call Waymo</button>
                 </div>
