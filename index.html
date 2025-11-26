@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="LA Mission">
-    <title>LA Mission v8</title>
+    <title>LA Mission v9</title>
     
     <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Grand_Theft_Auto_V_Logo.svg/1200px-Grand_Theft_Auto_V_Logo.svg.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -89,7 +89,6 @@
         .bg-sam { background: #3b82f6; } 
         .bg-emma { background: #ec4899; }
 
-        /* Checklist Style */
         .check-item { display: flex; align-items: center; padding: 10px; background: #222; border-radius: 8px; margin-bottom: 8px; }
         .check-item input { margin-right: 12px; transform: scale(1.5); accent-color: #56a95c; }
         .check-item label { color: #ddd; font-size: 0.9rem; }
@@ -126,8 +125,11 @@
                         <h3 class="text-xl font-bold">LAX Arrival</h3>
                         <span class="text-purple-400 font-bold">09:05</span>
                     </div>
-                    <div><span class="stat-tag">目的地: Hotel</span></div>
-                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Uber 請搭綠色接駁車去「LAX-it」區。</span>
+                    <div>
+                        <span class="stat-tag"><i class="fas fa-clock"></i> 停留: 速離</span>
+                        <span class="stat-tag">目的地: Hotel</span>
+                    </div>
+                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Intel: Uber/Lyft 請搭接駁車去「LAX-it」綠色區域叫車。</span>
                     <a href="https://m.uber.com/ul" class="btn-uber mt-3 block w-full py-3 rounded text-center text-xs font-bold uppercase text-white">Call Uber to Hotel</a>
                 </div>
 
@@ -170,8 +172,22 @@
                             <a href="https://www.google.com/maps/search/?api=1&query=The+Gumbo+Pot+Farmers+Market" target="_blank" class="food-link">2. The Gumbo Pot <i class="fas fa-external-link-alt text-xs"></i></a>
                             <div class="must-eat">必吃: Jambalaya</div>
                         </div>
+                         <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Bob's+Coffee+and+Doughnuts" target="_blank" class="food-link">3. Bob's Coffee & Doughnuts <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="must-eat">必吃: Apple Fritter</div>
+                        </div>
                     </div>
                     <button class="btn-waymo mt-3 w-full py-3 rounded text-center text-xs font-bold uppercase text-white">Call Waymo</button>
+                </div>
+
+                <div class="mission-card p-5 rounded-r-xl border-l-blue-600">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">Side Mission: Gear Up</h3>
+                        <i class="fas fa-tshirt text-gray-500"></i>
+                    </div>
+                    <span class="text-xs font-bold text-blue-400 uppercase tracking-widest mb-1 block">Dodgers Clubhouse (Hollywood)</span>
+                    <p class="text-sm text-gray-400 mb-2">就在星光大道旁的 Ovation 商場內。官方專賣店，帽子款式最齊！</p>
+                    <a href="https://maps.google.com/?cid=3565751723328692397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ8" target="_blank" class="btn-uber block w-full py-2 rounded text-center text-xs font-bold uppercase text-white border-blue-500">Navigate to Store</a>
                 </div>
 
                 <div class="mission-card p-5 rounded-r-xl border-l-pink-500">
@@ -211,6 +227,10 @@
                             <a href="https://www.google.com/maps/search/?api=1&query=Jitlada+Los+Angeles" target="_blank" class="food-link">2. Jitlada (Thai) <i class="fas fa-external-link-alt text-xs"></i></a>
                             <div class="must-eat">必吃: Green Curry</div>
                         </div>
+                         <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Home+Restaurant+Los+Feliz" target="_blank" class="food-link">3. Home Restaurant <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="must-eat">必吃: Mac & Cheese</div>
+                        </div>
                     </div>
                     <a href="https://www.google.com/maps/dir/Los+Angeles+International+Airport,+1+World+Way,+Los+Angeles,+CA,+United+States/Park+Plaza+Lodge,+6001+West+3rd+Street,+Los+Angeles,+CA,+United+States/The+Original+Farmers+Market,+6333+West+3rd+Street,+Los+Angeles,+CA,+United+States/The+Grove,+189+The+Grove+Drive,+Los+Angeles,+CA,+United+States/Hollywood+Walk+of+Fame,+Hollywood+Boulevard,+Vine+Street,+Los+Angeles,+CA,+United+States/Lake+Hollywood+Park,+3160+Canyon+Lake+Drive,+Los+Angeles,+CA,+United+States/Griffith+Observatory,+2800+East+Observatory+Road,+Los+Angeles,+CA,+United+States/data=!4m44!4m43!1m5!1m1!19sChIJtU-yE9KwwoAR8a2LaVd7qHc!2m2!1d-118.4036052!2d33.942153!1m5!1m1!19sChIJ9472cia5woARz6XwN5x563g!2m2!1d-118.35142379999999!2d34.0703002!1m5!1m1!19sChIJmeuOVTC5woARRgUknn4XqXE!2m2!1d-118.3603699!2d34.072011499999995!1m5!1m1!19sChIJwwPTwi-5woARbtuI_49vkMM!2m2!1d-118.3575164!2d34.0719407!1m5!1m1!19sChIJXyC7WTu_woARPvVMCHBXd4U!2m2!1d-118.3295694!2d34.101605899999996!1m5!1m1!19sChIJIWe65uK_woARj5O0F9JFBJw!2m2!1d-118.3261053!2d34.1269448!1m5!1m1!19sChIJywjU6WG_woAR3NrWwrEH_3M!2m2!1d-118.3003935!2d34.1184341!3e0" class="bg-gray-800 border border-gray-600 mt-3 block w-full py-3 rounded text-center text-xs font-bold uppercase text-white">GPS Route</a>
                 </div>
@@ -248,6 +268,10 @@
                             <a href="https://www.google.com/maps/search/?api=1&query=Tacos+Tumbras+a+Tomas" target="_blank" class="food-link">2. Tacos Tumbras <i class="fas fa-external-link-alt text-xs"></i></a>
                             <div class="must-eat">必吃: Carnitas Tacos</div>
                         </div>
+                         <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=G%26B+Coffee+Los+Angeles" target="_blank" class="food-link">3. G&B Coffee <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="must-eat">必喝: Iced Almond Macadamia Latte</div>
+                        </div>
                     </div>
                 </div>
 
@@ -265,6 +289,10 @@
                         <div class="food-item">
                             <a href="https://www.google.com/maps/search/?api=1&query=Fat+Sal's+Deli+Westwood" target="_blank" class="food-link">2. Fat Sal's Deli <i class="fas fa-external-link-alt text-xs"></i></a>
                             <div class="must-eat">必吃: Fat Texas</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=CAVA+Westwood" target="_blank" class="food-link">3. CAVA <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="must-eat">必吃: Harissa Avocado Bowl</div>
                         </div>
                     </div>
                     <a href="https://m.uber.com/ul" class="btn-uber mt-2 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Uber (加停靠點!)</a>
@@ -393,9 +421,8 @@
         // Init
         setPayer('Sam');
         renderExpenses();
-        fetchWeather(); // Get Weather on Load
+        fetchWeather(); 
 
-        // Fetch Weather from Open-Meteo API
         async function fetchWeather() {
             try {
                 const response = await fetch('https://api.open-meteo.com/v1/forecast?latitude=34.05&longitude=-118.24&current_weather=true&temperature_unit=celsius');
