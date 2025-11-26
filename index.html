@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="LA Mission">
-    <title>LA Mission v5</title>
+    <title>LA Mission v6</title>
     
     <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Grand_Theft_Auto_V_Logo.svg/1200px-Grand_Theft_Auto_V_Logo.svg.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -185,12 +185,16 @@
             <h1 class="text-4xl mb-1 text-white uppercase italic drop-shadow-lg">Mission 2</h1>
             <p class="text-cyan-400 font-bold mb-6 text-sm tracking-widest uppercase">West Coast Hustle</p>
             
-            <div class="bg-red-900/30 border border-red-600/50 p-4 mb-6 rounded-lg relative">
+            <div class="bg-blue-900/30 border border-blue-600/50 p-4 mb-6 rounded-lg relative">
                 <div class="flex items-start gap-3">
-                    <i class="fas fa-exclamation-triangle text-red-500 mt-1"></i>
+                    <i class="fas fa-car text-blue-400 mt-1"></i>
                     <div>
-                        <h3 class="text-red-500 font-bold uppercase text-xs tracking-wider">High Alert</h3>
-                        <p class="text-gray-300 text-xs mt-1">不要回飯店拿行李！LA 下午塞車嚴重。請帶著行李走。</p>
+                        <h3 class="text-blue-400 font-bold uppercase text-xs tracking-wider">Tactical Move: 中途停靠</h3>
+                        <p class="text-gray-300 text-xs mt-1">
+                            1. 早上把行李<b>寄放飯店</b>，輕裝去中央市場。<br>
+                            2. 叫車去 Getty 時，設定<b>「中途停靠 (Add Stop)」</b>回飯店拿行李。<br>
+                            3. 到 Getty 後，行李<b>免費寄放</b>在山下電車站！
+                        </p>
                     </div>
                 </div>
             </div>
@@ -205,16 +209,21 @@
                 </div>
 
                 <div class="mission-card p-5 rounded-r-xl border-l-yellow-400">
-                    <h3 class="text-xl font-bold">UCLA & Getty</h3>
+                    <div class="flex justify-between">
+                        <h3 class="text-xl font-bold">UCLA & Getty</h3>
+                        <span class="text-xs bg-gray-800 px-2 py-1 rounded">行李免費寄放</span>
+                    </div>
+                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Getty 行李可寄放在山下 Lower Tram Station 的 Coat Check。</span>
                     <div class="food-intel">
                         <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]"><i class="fas fa-cookie-bite"></i> 甜點點心</div>
                         <a href="https://www.google.com/maps/search/?api=1&query=Diddy+Riese+Westwood" target="_blank" class="food-link">Diddy Riese (導航)</a>
                     </div>
-                    <a href="https://m.uber.com/ul" class="btn-uber mt-2 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Long Ride Uber</a>
+                    <a href="https://m.uber.com/ul" class="btn-uber mt-2 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Uber (記得加停靠點!)</a>
                 </div>
 
                 <div class="mission-card p-5 rounded-r-xl border-l-cyan-400">
                     <h3 class="text-xl font-bold">Santa Monica</h3>
+                    <span class="warning-text"><i class="fas fa-suitcase"></i> 晚上請用 <b>Bounce</b> App 在此寄放行李再去吃飯。</span>
                     <div class="food-intel">
                         <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]"><i class="fas fa-cocktail"></i> 海灘晚餐</div>
                         <a href="https://www.google.com/maps/search/?api=1&query=Cha+Cha+Chicken+Santa+Monica" target="_blank" class="food-link">Cha Cha Chicken (導航)</a>
