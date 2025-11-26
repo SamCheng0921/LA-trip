@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="LA Mission">
-    <title>LA Mission v11</title>
+    <title>LA Mission v12</title>
     
     <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Grand_Theft_Auto_V_Logo.svg/1200px-Grand_Theft_Auto_V_Logo.svg.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -66,6 +66,16 @@
         }
         .food-desc { color: #999; font-size: 0.75rem; margin-top: 2px; }
         .must-eat { color: #facc15; font-size: 0.75rem; font-weight: bold; }
+        
+        .drink-rec {
+            background: #1a2634;
+            border-left: 3px solid #3b82f6;
+            padding: 6px 10px;
+            margin-top: 8px;
+            font-size: 0.75rem;
+            color: #bfdbfe;
+            border-radius: 0 4px 4px 0;
+        }
 
         .stat-tag {
             display: inline-block;
@@ -126,7 +136,7 @@
                         <span class="text-purple-400 font-bold">09:05</span>
                     </div>
                     <div><span class="stat-tag">目的地: Hotel</span></div>
-                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Intel: Uber/Lyft 請搭接駁車去「LAX-it」區叫車。</span>
+                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Intel: Uber/Lyft 請搭接駁車去「LAX-it」綠色區域叫車。</span>
                     <a href="https://m.uber.com/ul" class="btn-uber mt-3 block w-full py-3 rounded text-center text-xs font-bold uppercase text-white">Call Uber to Hotel</a>
                 </div>
 
@@ -140,16 +150,19 @@
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Nearby Food</div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Canter's+Deli+Los+Angeles" target="_blank" class="food-link">1. Canter's Deli <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Canter's+Deli+Los+Angeles" target="_blank" class="food-link">1. Canter's Deli <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Hot Pastrami Sandwich</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Joan's+on+Third+Los+Angeles" target="_blank" class="food-link">2. Joan's on Third <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Joan's+on+Third+Los+Angeles" target="_blank" class="food-link">2. Joan's on Third <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Chinese Chicken Salad</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Mercado+Los+Angeles+3rd+St" target="_blank" class="food-link">3. Mercado <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Mercado+Los+Angeles+3rd+St" target="_blank" class="food-link">3. Mercado <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Carnitas Tacos</div>
+                        </div>
+                        <div class="drink-rec">
+                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Verve Coffee Roasters (走路可到，氣氛超好)
                         </div>
                     </div>
                 </div>
@@ -162,16 +175,19 @@
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Market Food</div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Pampas+Grill+Farmers+Market" target="_blank" class="food-link">1. Pampas Grill <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Pampas+Grill+Farmers+Market" target="_blank" class="food-link">1. Pampas Grill <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Sirloin Cap</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=The+Gumbo+Pot+Farmers+Market" target="_blank" class="food-link">2. The Gumbo Pot <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=The+Gumbo+Pot+Farmers+Market" target="_blank" class="food-link">2. The Gumbo Pot <span class="text-yellow-400">$</span></a>
                             <div class="must-eat">必吃: Jambalaya</div>
                         </div>
                          <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Bob's+Coffee+and+Doughnuts" target="_blank" class="food-link">3. Bob's Coffee & Doughnuts <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Bob's+Coffee+and+Doughnuts" target="_blank" class="food-link">3. Bob's Doughnuts <span class="text-yellow-400">$</span></a>
                             <div class="must-eat">必吃: Apple Fritter</div>
+                        </div>
+                        <div class="drink-rec">
+                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Alfred Coffee (Melrose店，網美必去)
                         </div>
                     </div>
                     <button class="btn-waymo mt-3 w-full py-3 rounded text-center text-xs font-bold uppercase text-white">Call Waymo</button>
@@ -194,16 +210,19 @@
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Dinner</div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=In-N-Out+Burger+7009+Sunset+Blvd" target="_blank" class="food-link">1. In-N-Out (Sunset) <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=In-N-Out+Burger+7009+Sunset+Blvd" target="_blank" class="food-link">1. In-N-Out (Sunset) <span class="text-yellow-400">$</span></a>
                             <div class="must-eat">必吃: Double-Double Animal Style</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Roscoe's+Chicken+and+Waffles+Hollywood" target="_blank" class="food-link">2. Roscoe's Chicken <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Roscoe's+Chicken+and+Waffles+Hollywood" target="_blank" class="food-link">2. Roscoe's Chicken <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: The Obama Special</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=L'Antica+Pizzeria+da+Michele+Hollywood" target="_blank" class="food-link">3. L'Antica Pizzeria <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=L'Antica+Pizzeria+da+Michele+Hollywood" target="_blank" class="food-link">3. L'Antica Pizzeria <span class="text-yellow-400">$$$</span></a>
                             <div class="must-eat">必吃: Margherita Pizza</div>
+                        </div>
+                        <div class="drink-rec">
+                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Philz Coffee (必點 Mint Mojito Coffee)
                         </div>
                     </div>
                 </div>
@@ -216,16 +235,19 @@
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Late Night</div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Fred+62+Los+Angeles" target="_blank" class="food-link">1. Fred 62 <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Fred+62+Los+Angeles" target="_blank" class="food-link">1. Fred 62 <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Juicy Lucy Burger</div>
                         </div>
                          <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Jitlada+Los+Angeles" target="_blank" class="food-link">2. Jitlada (Thai) <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Jitlada+Los+Angeles" target="_blank" class="food-link">2. Jitlada (Thai) <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Green Curry</div>
                         </div>
                          <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Home+Restaurant+Los+Feliz" target="_blank" class="food-link">3. Home Restaurant <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Home+Restaurant+Los+Feliz" target="_blank" class="food-link">3. Home Restaurant <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Mac & Cheese</div>
+                        </div>
+                        <div class="drink-rec">
+                            <i class="fas fa-glass-cheers"></i> <b>喝這家:</b> The Dresden (復古酒吧)
                         </div>
                     </div>
                     <a href="https://www.google.com/maps/dir/Los+Angeles+International+Airport,+1+World+Way,+Los+Angeles,+CA,+United+States/Park+Plaza+Lodge,+6001+West+3rd+Street,+Los+Angeles,+CA,+United+States/The+Original+Farmers+Market,+6333+West+3rd+Street,+Los+Angeles,+CA,+United+States/The+Grove,+189+The+Grove+Drive,+Los+Angeles,+CA,+United+States/Hollywood+Walk+of+Fame,+Hollywood+Boulevard,+Vine+Street,+Los+Angeles,+CA,+United+States/Lake+Hollywood+Park,+3160+Canyon+Lake+Drive,+Los+Angeles,+CA,+United+States/Griffith+Observatory,+2800+East+Observatory+Road,+Los+Angeles,+CA,+United+States/data=!4m44!4m43!1m5!1m1!19sChIJtU-yE9KwwoAR8a2LaVd7qHc!2m2!1d-118.4036052!2d33.942153!1m5!1m1!19sChIJ9472cia5woARz6XwN5x563g!2m2!1d-118.35142379999999!2d34.0703002!1m5!1m1!19sChIJmeuOVTC5woARRgUknn4XqXE!2m2!1d-118.3603699!2d34.072011499999995!1m5!1m1!19sChIJwwPTwi-5woARbtuI_49vkMM!2m2!1d-118.3575164!2d34.0719407!1m5!1m1!19sChIJXyC7WTu_woARPvVMCHBXd4U!2m2!1d-118.3295694!2d34.101605899999996!1m5!1m1!19sChIJIWe65uK_woARj5O0F9JFBJw!2m2!1d-118.3261053!2d34.1269448!1m5!1m1!19sChIJywjU6WG_woAR3NrWwrEH_3M!2m2!1d-118.3003935!2d34.1184341!3e0" class="bg-gray-800 border border-gray-600 mt-3 block w-full py-3 rounded text-center text-xs font-bold uppercase text-white">GPS Route</a>
@@ -241,11 +263,11 @@
                 <div class="flex items-start gap-3">
                     <i class="fas fa-car text-blue-400 mt-1"></i>
                     <div>
-                        <h3 class="text-blue-400 font-bold uppercase text-xs tracking-wider">New Strategy: 完美順路</h3>
+                        <h3 class="text-blue-400 font-bold uppercase text-xs tracking-wider">New Strategy</h3>
                         <p class="text-gray-300 text-xs mt-1">
                             1. 行李<b>寄放飯店</b>，去附近吃早餐。<br>
-                            2. 逛比佛利山莊 (很近)。<br>
-                            3. 叫車去 Getty 時，<b>中途停靠</b>飯店拿行李。<br>
+                            2. 逛比佛利山莊 (寄放難找，建議輕裝)。<br>
+                            3. 回飯店拿行李，叫車去 Getty。<br>
                             4. 抵達 Getty 後，行李<b>免費寄放</b>山下。
                         </p>
                     </div>
@@ -254,21 +276,19 @@
 
             <div class="space-y-4">
                 <div class="mission-card p-5 rounded-r-xl border-l-green-500">
-                    <h3 class="text-xl font-bold">Top-Tier Breakfast</h3>
-                    <p class="text-xs text-gray-400 mb-2">Don't go to DTLA. Eat local.</p>
+                    <h3 class="text-xl font-bold">Breakfast</h3>
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Near Hotel</div>
                         <div class="food-item">
-                            <a href="https://maps.google.com/?cid=3565751723328692397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ9" target="_blank" class="food-link">1. Republique <i class="fas fa-external-link-alt text-xs"></i></a>
-                            <div class="food-desc">洛杉磯最美早午餐，離飯店 5 分鐘。</div>
+                            <a href="https://maps.google.com/?cid=3565751723328692397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ9" target="_blank" class="food-link">1. Republique <span class="text-yellow-400">$$$</span></a>
                             <div class="must-eat">必吃: Kimchi Fried Rice</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ0" target="_blank" class="food-link">2. Sycamore Kitchen <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ0" target="_blank" class="food-link">2. Sycamore Kitchen <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Pork Belly Hash</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ2" target="_blank" class="food-link">3. Met Her At A Bar <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ2" target="_blank" class="food-link">3. Met Her At A Bar <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Waffles</div>
                         </div>
                     </div>
@@ -281,24 +301,24 @@
                     </div>
                     <span class="stat-tag">拍照 / 逛街</span>
                     <div class="food-intel">
-                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Food & Sweets</div>
+                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Sweets & Food</div>
                         <div class="food-item">
-                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ3" target="_blank" class="food-link">1. The Cheesecake Factory <i class="fas fa-external-link-alt text-xs"></i></a>
-                            <div class="food-desc">雖然是連鎖，但比佛利店氣氛很好。</div>
+                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ3" target="_blank" class="food-link">1. Cheesecake Factory <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Strawberry Cheesecake</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ4" target="_blank" class="food-link">2. Il Pastaio <i class="fas fa-external-link-alt text-xs"></i></a>
-                            <div class="food-desc">明星常出沒的義大利餐廳。</div>
+                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ4" target="_blank" class="food-link">2. Il Pastaio <span class="text-yellow-400">$$$</span></a>
                             <div class="must-eat">必吃: Justin Bieber Pasta</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgIC5tLy5owE!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">3. Sprinkles Cupcakes <i class="fas fa-external-link-alt text-xs"></i></a>
-                            <div class="food-desc">必去「杯子蛋糕提款機」拍照。</div>
+                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgIC5tLy5owE!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">3. Sprinkles <span class="text-yellow-400">$</span></a>
                             <div class="must-eat">必吃: Red Velvet</div>
                         </div>
+                        <div class="drink-rec">
+                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Alfred Coffee (Beverly Hills店)
+                        </div>
                     </div>
-                    <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ6" class="btn-uber mt-2 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Uber to Rodeo Dr</a>
+                    <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ6" class="btn-uber mt-2 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Uber to Rodeo</a>
                 </div>
 
                 <div class="mission-card p-5 rounded-r-xl border-l-yellow-400">
@@ -306,7 +326,22 @@
                         <h3 class="text-xl font-bold">The Getty Center</h3>
                         <span class="text-xs bg-gray-800 px-2 py-1 rounded">行李免費寄放</span>
                     </div>
-                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> 叫車時記得設定「中途停靠飯店」拿行李！</span>
+                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> 記得設定中途停靠飯店拿行李！</span>
+                    <div class="food-intel">
+                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Westwood Food</div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Diddy+Riese" target="_blank" class="food-link">1. Diddy Riese <span class="text-yellow-400">$</span></a>
+                            <div class="must-eat">必吃: Ice Cream Sandwich</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Fat+Sal's+Deli+Westwood" target="_blank" class="food-link">2. Fat Sal's Deli <span class="text-yellow-400">$$</span></a>
+                            <div class="must-eat">必吃: Fat Texas</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://maps.google.com/?cid=3866628448079004996&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ1" target="_blank" class="food-link">3. Egg Tuck <span class="text-yellow-400">$</span></a>
+                            <div class="must-eat">必吃: Bacon Egg Sandwich</div>
+                        </div>
+                    </div>
                     <a href="https://m.uber.com/ul" class="btn-uber mt-2 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Uber (Add Stop @ Hotel)</a>
                 </div>
 
@@ -316,16 +351,19 @@
                     <div class="food-intel">
                         <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Beach Dinner</div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Cha+Cha+Chicken+Santa+Monica" target="_blank" class="food-link">1. Cha Cha Chicken <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Cha+Cha+Chicken+Santa+Monica" target="_blank" class="food-link">1. Cha Cha Chicken <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Coconut Fried Chicken</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=Blue+Plate+Taco" target="_blank" class="food-link">2. Blue Plate Taco <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Blue+Plate+Taco" target="_blank" class="food-link">2. Blue Plate Taco <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: Lobster Tacos</div>
                         </div>
                         <div class="food-item">
-                            <a href="https://www.google.com/maps/search/?api=1&query=HiHo+Cheeseburger+Santa+Monica" target="_blank" class="food-link">3. HiHo Burger <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <a href="https://www.google.com/maps/search/?api=1&query=HiHo+Cheeseburger+Santa+Monica" target="_blank" class="food-link">3. HiHo Burger <span class="text-yellow-400">$$</span></a>
                             <div class="must-eat">必吃: HiHo Double</div>
+                        </div>
+                        <div class="drink-rec">
+                            <i class="fas fa-coffee"></i> <b>喝這家:</b> Philz Coffee (海灘店)
                         </div>
                     </div>
                     <button class="btn-waymo mt-3 w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Call Waymo</button>
