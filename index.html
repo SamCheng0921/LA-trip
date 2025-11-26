@@ -6,7 +6,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="LA Mission">
-    <title>LA Mission v6</title>
+    <title>LA Mission v7</title>
     
     <link rel="apple-touch-icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Grand_Theft_Auto_V_Logo.svg/1200px-Grand_Theft_Auto_V_Logo.svg.png">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -18,7 +18,7 @@
             background-color: #000; 
             color: #eeeeee; 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
-            padding-bottom: 110px;
+            padding-bottom: 120px;
             user-select: none;
             -webkit-user-select: none;
             -webkit-tap-highlight-color: transparent;
@@ -42,22 +42,30 @@
         }
         
         .food-intel {
-            background: #0f220f;
-            border: 1px solid #1e3a1e;
-            padding: 12px;
-            margin-top: 12px;
+            background: #0f1c0f;
+            border: 1px solid #1a331a;
+            padding: 10px;
+            margin-top: 10px;
             border-radius: 8px;
             font-size: 0.85rem;
         }
         
+        .food-item {
+            border-bottom: 1px solid #1a331a;
+            padding-bottom: 8px;
+            margin-bottom: 8px;
+        }
+        .food-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+        
         .food-link {
             display: inline-block;
-            color: #fff;
+            color: #56a95c;
             font-weight: bold;
             text-decoration: none;
-            border-bottom: 2px solid #56a95c;
-            padding-bottom: 1px;
+            font-size: 0.9rem;
         }
+        .food-desc { color: #999; font-size: 0.75rem; margin-top: 2px; }
+        .must-eat { color: #facc15; font-size: 0.75rem; font-weight: bold; }
 
         .stat-tag {
             display: inline-block;
@@ -73,15 +81,14 @@
         }
         
         .warning-text { color: #facc15; font-size: 0.75rem; margin-top: 5px; display: block; border-top: 1px solid #333; padding-top: 5px;}
-
         .btn-waymo { background: linear-gradient(90deg, #00d2ff, #3a7bd5); }
         .btn-uber { background: #000; border: 1px solid #444; }
 
         /* Payer Buttons */
         .payer-btn { opacity: 0.4; border: 2px solid transparent; transform: scale(0.95); transition: all 0.2s; }
         .payer-active { opacity: 1; transform: scale(1.05); border-color: white; box-shadow: 0 0 10px rgba(255,255,255,0.3); }
-        .bg-sam { background: #3b82f6; } /* Blue */
-        .bg-emma { background: #ec4899; } /* Pink */
+        .bg-sam { background: #3b82f6; } 
+        .bg-emma { background: #ec4899; }
     </style>
 </head>
 <body class="pt-24">
@@ -96,7 +103,7 @@
             </div>
             <div class="text-right">
                 <div class="gta-font text-3xl hud-money" id="hud-money">$0</div>
-                <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mt-1">Total Spent</div>
+                <div class="text-gray-500 text-[10px] font-bold uppercase tracking-widest mt-1">Shared Ledger</div>
             </div>
         </div>
     </div>
@@ -115,15 +122,10 @@
                     </div>
                     <div>
                         <span class="stat-tag"><i class="fas fa-clock"></i> 停留: 速離</span>
-                        <span class="stat-tag"><i class="fas fa-suitcase"></i> 行李: 隨身</span>
+                        <span class="stat-tag">目的地: Hotel</span>
                     </div>
-                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Intel: Uber請搭接駁車去「LAX-it」區叫車。</span>
-                    <div class="food-intel">
-                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]"><i class="fas fa-hamburger"></i> 必吃 (< $20)</div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=In-N-Out+Burger+Sepulveda+Los+Angeles" target="_blank" class="food-link">In-N-Out Burger (導航)</a>
-                        <p class="text-gray-400 text-sm mt-1">必點: <span class="text-yellow-400">Double-Double Animal Style</span></p>
-                    </div>
-                    <a href="https://m.uber.com/ul" class="btn-uber mt-3 block w-full py-3 rounded text-center text-xs font-bold uppercase text-white">Call Uber</a>
+                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Intel: Uber/Lyft 請搭接駁車去「LAX-it」綠色區域叫車。</span>
+                    <a href="https://m.uber.com/ul" class="btn-uber mt-3 block w-full py-3 rounded text-center text-xs font-bold uppercase text-white">Call Uber to Hotel</a>
                 </div>
 
                 <div class="mission-card p-5 rounded-r-xl border-l-yellow-500">
@@ -132,10 +134,24 @@
                         <i class="fas fa-hotel text-gray-500"></i>
                     </div>
                     <div><span class="stat-tag">放行李</span></div>
+                    
                     <div class="food-intel">
-                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]"><i class="fas fa-utensils"></i> 美食 ($20-$30)</div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Canter's+Deli+Los+Angeles" target="_blank" class="food-link">Canter's Deli (導航)</a>
-                        <p class="text-gray-400 text-sm mt-1">推薦: <span class="text-yellow-400">Hot Pastrami Sandwich</span></p>
+                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Nearby Food Options</div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Canter's+Deli+Los+Angeles" target="_blank" class="food-link">1. Canter's Deli (24hr) <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">洛杉磯最經典的猶太餐廳，走路可到。</div>
+                            <div class="must-eat">必吃: Hot Pastrami Sandwich</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://maps.google.com/maps/contrib/117812543293665295835" target="_blank" class="food-link">2. Joan's on Third <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">非常時髦的早午餐店，好萊塢明星常出沒。</div>
+                            <div class="must-eat">必吃: Chinese Chicken Salad</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://maps.google.com/?cid=11020594252077932223&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ6" target="_blank" class="food-link">3. Mercado <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">氣氛很好的現代墨西哥料理。</div>
+                            <div class="must-eat">必吃: Carnitas Tacos, Guacamole</div>
+                        </div>
                     </div>
                 </div>
 
@@ -145,23 +161,52 @@
                         <i class="fas fa-shopping-bag text-gray-500"></i>
                     </div>
                     <div><span class="stat-tag">午餐</span></div>
+
                     <div class="food-intel">
-                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]"><i class="fas fa-drumstick-bite"></i> 高CP值 (< $25)</div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Pampas+Grill+The+Grove" target="_blank" class="food-link">Pampas Grill (導航)</a>
-                        <p class="text-gray-400 text-sm mt-1">必點: <span class="text-yellow-400">Sirloin Cap</span></p>
+                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Market Food Options</div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Pampas+Grill+The+Grove" target="_blank" class="food-link">1. Pampas Grill <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">CP值最高的巴西烤肉，秤重計價。</div>
+                            <div class="must-eat">必吃: Sirloin Cap (Top Sirloin)</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sCIHM0ogKEICAgIDx0MqJKw!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">2. The Gumbo Pot <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">紐奧良肯瓊風味，重口味首選。</div>
+                            <div class="must-eat">必吃: Jambalaya (什錦飯)</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://maps.google.com/maps/contrib/113014199175159394168" target="_blank" class="food-link">3. Bob's Coffee & Doughnuts <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">市場內的老牌甜甜圈。</div>
+                            <div class="must-eat">必吃: Apple Fritter, Glazed Donut</div>
+                        </div>
                     </div>
                     <button class="btn-waymo mt-3 w-full py-3 rounded text-center text-xs font-bold uppercase text-white">Call Waymo</button>
                 </div>
 
                 <div class="mission-card p-5 rounded-r-xl border-l-pink-500">
                     <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-xl font-bold">Walk of Fame</h3>
+                        <h3 class="text-xl font-bold">Hollywood</h3>
                         <i class="fas fa-star text-gray-500"></i>
                     </div>
-                    <span class="warning-text"><i class="fas fa-exclamation-triangle text-red-500"></i> Alert: 不要拿路邊黑人的CD，不要跟卡通人物合照(要錢)。</span>
+                    <span class="warning-text"><i class="fas fa-exclamation-triangle text-red-500"></i> Alert: 路上有人塞CD絕對不要拿。</span>
+                    
                     <div class="food-intel">
-                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]"><i class="fas fa-drumstick-bite"></i> 靈魂食物</div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Roscoe's+Chicken+And+Waffles+Hollywood" target="_blank" class="food-link">Roscoe's Chicken (導航)</a>
+                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Dinner Options</div>
+                        <div class="food-item">
+                            <a href="https://maps.google.com/?cid=11020594252077932223&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQ9" target="_blank" class="food-link">1. In-N-Out Burger (Sunset) <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">這間分店位置很好，離日落大道很近。</div>
+                            <div class="must-eat">必吃: Double-Double Animal Style</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Roscoe's+Chicken+And+Waffles+Hollywood" target="_blank" class="food-link">2. Roscoe's Chicken & Waffles <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">洛杉磯靈魂食物代表，鹹甜交織。</div>
+                            <div class="must-eat">必吃: The Obama Special</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipOBe-P6t0VQ4VB6lO8dul1IvsNehdFAa0-C6ntE!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">3. L'Antica Pizzeria da Michele <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">享受電影《享受吧！一個人的旅行》的披薩。</div>
+                            <div class="must-eat">必吃: Margherita Pizza</div>
+                        </div>
                     </div>
                 </div>
 
@@ -170,11 +215,25 @@
                         <h3 class="text-xl font-bold">Griffith Observatory</h3>
                         <i class="fas fa-moon text-gray-500"></i>
                     </div>
-                    <div><span class="stat-tag">夕陽/夜景</span></div>
-                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Intel: 山上訊號差，提早叫車。</span>
+                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Intel: 山上沒什麼好吃的，建議下山去 Los Feliz 吃。</span>
+                    
                     <div class="food-intel">
-                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]"><i class="fas fa-coffee"></i> 下山晚餐</div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Fred+62+Los+Angeles" target="_blank" class="food-link">Fred 62 (導航)</a>
+                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Late Night Food (Los Feliz)</div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Fred+62+Los+Angeles" target="_blank" class="food-link">1. Fred 62 <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">24小時營業的復古美式 Diner。</div>
+                            <div class="must-eat">必吃: Juicy Lucy Burger</div>
+                        </div>
+                         <div class="food-item">
+                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipPVFUUEFv9797Y7v-LzJNz04HhMIBebew4N5g-5!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">2. Jitlada <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">非常有名的泰式料理 (Thai Town)，很辣！</div>
+                            <div class="must-eat">必吃: Green Curry, Crispy Catfish</div>
+                        </div>
+                         <div class="food-item">
+                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipMOntP6XSlk7-unhxxfprCXn1bBcCWPeTCp8JU8!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">3. Home Restaurant <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">氣氛溫馨，戶外座位很舒服。</div>
+                            <div class="must-eat">必吃: Mac & Cheese, Pot Pie</div>
+                        </div>
                     </div>
                     <a href="https://www.google.com/maps/dir/Los+Angeles+International+Airport,+1+World+Way,+Los+Angeles,+CA,+United+States/Park+Plaza+Lodge,+6001+West+3rd+Street,+Los+Angeles,+CA,+United+States/The+Original+Farmers+Market,+6333+West+3rd+Street,+Los+Angeles,+CA,+United+States/The+Grove,+189+The+Grove+Drive,+Los+Angeles,+CA,+United+States/Hollywood+Walk+of+Fame,+Hollywood+Boulevard,+Vine+Street,+Los+Angeles,+CA,+United+States/Lake+Hollywood+Park,+3160+Canyon+Lake+Drive,+Los+Angeles,+CA,+United+States/Griffith+Observatory,+2800+East+Observatory+Road,+Los+Angeles,+CA,+United+States/data=!4m44!4m43!1m5!1m1!19sChIJtU-yE9KwwoAR8a2LaVd7qHc!2m2!1d-118.4036052!2d33.942153!1m5!1m1!19sChIJ9472cia5woARz6XwN5x563g!2m2!1d-118.35142379999999!2d34.0703002!1m5!1m1!19sChIJmeuOVTC5woARRgUknn4XqXE!2m2!1d-118.3603699!2d34.072011499999995!1m5!1m1!19sChIJwwPTwi-5woARbtuI_49vkMM!2m2!1d-118.3575164!2d34.0719407!1m5!1m1!19sChIJXyC7WTu_woARPvVMCHBXd4U!2m2!1d-118.3295694!2d34.101605899999996!1m5!1m1!19sChIJIWe65uK_woARj5O0F9JFBJw!2m2!1d-118.3261053!2d34.1269448!1m5!1m1!19sChIJywjU6WG_woAR3NrWwrEH_3M!2m2!1d-118.3003935!2d34.1184341!3e0" class="bg-gray-800 border border-gray-600 mt-3 block w-full py-3 rounded text-center text-xs font-bold uppercase text-white">GPS Route</a>
                 </div>
@@ -201,10 +260,27 @@
 
             <div class="space-y-4">
                 <div class="mission-card p-5 rounded-r-xl border-l-green-500">
-                    <h3 class="text-xl font-bold">Grand Central Mkt</h3>
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">Grand Central Mkt</h3>
+                    </div>
+                    
                     <div class="food-intel">
-                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]"><i class="fas fa-egg"></i> 早餐必吃</div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Eggslut+Grand+Central+Market" target="_blank" class="food-link">Eggslut (導航)</a>
+                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Breakfast Options</div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Eggslut+Grand+Central+Market" target="_blank" class="food-link">1. Eggslut <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">一定要排隊的網紅店，蛋很嫩。</div>
+                            <div class="must-eat">必吃: Fairfax Sandwich</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipOEChfdq7WzWQnmd0HqIsJEj5Fu6qsvDhsdQccX!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">2. Tacos Tumbras a Tomas <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">如果不吃蛋，這家塔可肉多到爆炸。</div>
+                            <div class="must-eat">必吃: Carnitas Tacos</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipNcQ3uMIyTtyaIst40pbeqC_-SDbfWa4_29r_XS!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">3. G&B Coffee <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">被評為美國最好喝的拿鐵之一。</div>
+                            <div class="must-eat">必喝: Iced Almond Macadamia Latte</div>
+                        </div>
                     </div>
                 </div>
 
@@ -213,20 +289,49 @@
                         <h3 class="text-xl font-bold">UCLA & Getty</h3>
                         <span class="text-xs bg-gray-800 px-2 py-1 rounded">行李免費寄放</span>
                     </div>
-                    <span class="warning-text"><i class="fas fa-exclamation-circle"></i> Getty 行李可寄放在山下 Lower Tram Station 的 Coat Check。</span>
+
                     <div class="food-intel">
-                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]"><i class="fas fa-cookie-bite"></i> 甜點點心</div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Diddy+Riese+Westwood" target="_blank" class="food-link">Diddy Riese (導航)</a>
+                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Westwood Food</div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Diddy+Riese+Westwood" target="_blank" class="food-link">1. Diddy Riese <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">兩塊熱餅乾夾冰淇淋，超便宜學生最愛。</div>
+                            <div class="must-eat">必吃: Ice Cream Sandwich</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipNO2jgQgKUdhhhPEu_FruhEoa1xbOCNg71rdQTg!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">2. Fat Sal's Deli <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">超級罪惡的巨無霸三明治，裡面會塞薯條。</div>
+                            <div class="must-eat">必吃: Fat Texas</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipPHaX0TuWQHQ9W7R4GGI42Qgd6KpOGocr9_iN0X!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">3. CAVA <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">如果想吃清淡點，這家地中海沙拉很紅。</div>
+                            <div class="must-eat">必吃: Harissa Avocado Bowl</div>
+                        </div>
                     </div>
                     <a href="https://m.uber.com/ul" class="btn-uber mt-2 block w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Uber (記得加停靠點!)</a>
                 </div>
 
                 <div class="mission-card p-5 rounded-r-xl border-l-cyan-400">
                     <h3 class="text-xl font-bold">Santa Monica</h3>
-                    <span class="warning-text"><i class="fas fa-suitcase"></i> 晚上請用 <b>Bounce</b> App 在此寄放行李再去吃飯。</span>
+                    <span class="warning-text"><i class="fas fa-suitcase"></i> 晚上請用 <b>Bounce</b> App 在此寄放行李。</span>
+                    
                     <div class="food-intel">
-                        <div class="flex items-center gap-2 mb-1 text-green-400 font-bold uppercase text-[10px]"><i class="fas fa-cocktail"></i> 海灘晚餐</div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Cha+Cha+Chicken+Santa+Monica" target="_blank" class="food-link">Cha Cha Chicken (導航)</a>
+                        <div class="text-xs text-gray-400 uppercase mb-2 font-bold">Beach Dinner</div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/search/?api=1&query=Cha+Cha+Chicken+Santa+Monica" target="_blank" class="food-link">1. Cha Cha Chicken <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">加勒比海風格，氣氛像 GTA 海灘派對。</div>
+                            <div class="must-eat">必吃: Coconut Fried Chicken</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://www.google.com/maps/place//data=!3m4!1e2!3m2!1sAF1QipOoHPwIyBsiFzhOEljNcm5QJpvV0PXBadbGCzKo!2e10!4m2!3m1!1s0x80c2b92672f68ef7:0x78eb799c37f0a5cf" target="_blank" class="food-link">2. Blue Plate Taco <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">就在大街上，看海景吃塔可喝調酒。</div>
+                            <div class="must-eat">必吃: Lobster Tacos</div>
+                        </div>
+                        <div class="food-item">
+                            <a href="https://maps.google.com/maps/contrib/118089524753521449754" target="_blank" class="food-link">3. HiHo Cheeseburger <i class="fas fa-external-link-alt text-xs"></i></a>
+                            <div class="food-desc">使用高級和牛做的漢堡，非常多汁。</div>
+                            <div class="must-eat">必吃: HiHo Double</div>
+                        </div>
                     </div>
                     <button class="btn-waymo mt-3 w-full py-2 rounded text-center text-xs font-bold uppercase text-white">Call Waymo</button>
                 </div>
